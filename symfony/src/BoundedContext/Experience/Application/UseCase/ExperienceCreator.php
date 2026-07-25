@@ -17,12 +17,11 @@ class ExperienceCreator
 
     public function execute(ExperienceCreatorRequest $experienceRequest): Experience
     {
-        $experience = new Experience();
-
-        $experience->setId(Uuid::v4());
-        $experience->setTitle($experienceRequest->title);
-        $experience->setDescription($experienceRequest->description);
-        $experience->setProviderId($experienceRequest->providerId);
+        $experience = new Experience(
+            title: $experienceRequest->title,
+            description: $experienceRequest->description,
+            providerId: $experienceRequest->providerId
+        );
 
         $this->repository->save($experience);
 

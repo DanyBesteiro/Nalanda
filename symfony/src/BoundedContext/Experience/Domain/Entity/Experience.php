@@ -24,6 +24,22 @@ class Experience
     #[ORM\Column(type: 'guid', name: 'provider_id')]
     private Uuid $providerId;
 
+    public function __construct(
+        string $title,
+        string $description,
+        Uuid $providerId
+    ) {
+        $this->id = Uuid::v4();
+
+        $this->title = $title;
+        $this->description = $description;
+        $this->providerId = $providerId;
+
+        if (empty(trim($this->title))) {
+            throw new \InvalidArgumentException('Not valid title');
+        }
+    }
+
     public function getId(): Uuid
     {
         return $this->id;
@@ -42,25 +58,5 @@ class Experience
     public function getProviderId(): Uuid
     {
         return $this->providerId;
-    }
-
-    public function setId(Uuid $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function setTitle(string $title): void
-    {
-        $this->title = $title;
-    }
-
-    public function setDescription(string $description): void
-    {
-        $this->description = $description;
-    }
-
-    public function setProviderId(Uuid $providerId): void
-    {
-        $this->providerId = $providerId;
     }
 }
