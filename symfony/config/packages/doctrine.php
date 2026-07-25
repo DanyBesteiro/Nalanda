@@ -12,12 +12,12 @@ return function (ContainerConfigurator $configurator) {
     $mappings = [];
 
     foreach ($contexts as $context) {
-        $entityDir = '%kernel.project_dir%/src/BoundedContext/' . $context . '/Domain/Entity';
+        $entityDir = '%kernel.project_dir%/src/BoundedContext/' . $context . '/Domain';
         $mappings["$context"] = [
             'is_bundle' => false,
             'type' => 'attribute',
             'dir' => $entityDir,
-            'prefix' => "App\\BoundedContext\\$context\\Domain\\Entity",
+            'prefix' => "App\\BoundedContext\\$context\\Domain",
             'alias' => $context,
         ];
     }
