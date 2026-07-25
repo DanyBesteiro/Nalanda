@@ -1,6 +1,6 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
+/.env.test
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
@@ -13,3 +13,6 @@
 /.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
+
+/.phpunit.result.cache
+/*.cache
