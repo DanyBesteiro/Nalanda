@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace App\BoundedContext\Experience\Application\DTO;
 
-use App\BoundedContext\Experience\Domain\Aggregate\Experience;
+use App\BoundedContext\Experience\Domain\Entity\Experience;
 use Symfony\Component\Uid\Uuid;
 
 class ExperienceDTO
 {
     public function __construct(
         public Uuid $id,
-        public string $name,
+        public string $title,
         public string $description,
         public Uuid $providerId
     ) {}
@@ -19,7 +19,7 @@ class ExperienceDTO
     /**
      * @return array{
      * id: string,
-     * name: string,
+     * title: string,
      * description: string,
      * providerId: string
      * }

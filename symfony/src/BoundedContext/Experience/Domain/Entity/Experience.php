@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\BoundedContext\Experience\Domain\Aggregate;
+namespace App\BoundedContext\Experience\Domain\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Uid\Uuid;

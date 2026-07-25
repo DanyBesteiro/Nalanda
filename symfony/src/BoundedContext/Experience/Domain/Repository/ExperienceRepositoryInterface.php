@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\BoundedContext\Experience\Domain\Repository;
 
-use App\BoundedContext\Experience\Domain\Aggregate\Experience;
+use App\BoundedContext\Experience\Domain\Entity\Experience;
 use Symfony\Component\Uid\Uuid;
 
 interface ExperienceRepositoryInterface

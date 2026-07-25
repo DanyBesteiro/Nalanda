@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\BoundedContext\Experience\Infrastructure\Persistence;
 
-use App\BoundedContext\Experience\Domain\Aggregate\Experience;
+use App\BoundedContext\Experience\Domain\Entity\Experience;
 use App\BoundedContext\Experience\Domain\Repository\ExperienceRepositoryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
