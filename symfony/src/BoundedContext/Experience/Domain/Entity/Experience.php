@@ -21,7 +21,7 @@ class Experience
     #[ORM\Column(type: 'text')]
     private string $description;
 
-    #[ORM\Column(type: 'guid')]
+    #[ORM\Column(type: 'guid', name: 'provider_id')]
     private Uuid $providerId;
 
     public function getId(): Uuid
