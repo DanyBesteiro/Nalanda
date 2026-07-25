@@ -7,6 +7,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 return function (ContainerConfigurator $configurator) {
     $contexts = [
         'Experience',
+        'Session'
     ];
 
     $mappings = [];
