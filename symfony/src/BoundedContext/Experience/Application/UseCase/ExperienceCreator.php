@@ -7,7 +7,6 @@ namespace App\BoundedContext\Experience\Application\UseCase;
 use App\BoundedContext\Experience\Application\Request\ExperienceCreatorRequest;
 use App\BoundedContext\Experience\Domain\Entity\Experience;
 use App\BoundedContext\Experience\Domain\Repository\ExperienceRepositoryInterface;
-use Symfony\Component\Uid\Uuid;
 
 class ExperienceCreator
 {
