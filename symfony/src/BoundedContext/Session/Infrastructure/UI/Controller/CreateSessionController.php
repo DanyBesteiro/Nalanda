@@ -22,16 +22,17 @@ class CreateSessionController extends AbstractController
         private readonly ValidatorInterface $validator
     ) {}
 
-    public function __invoke(string $experienceId, Request $request,): JsonResponse
+    public function __invoke(string $experienceId, Request $request): JsonResponse
     {
         try {
+            /** @var array{date: string, maxCapacity: int, price: float} $data */
             $data = $request->toArray();
 
             $sessionRequest = new SessionCreatorRequest(
                 experienceId: Uuid::fromString($experienceId),
-                date: $data['date'] ?? '',
-                maxCapacity: (int) ($data['maxCapacity'] ?? 0),
-                price: (float) ($data['price'] ?? 0.0)
+                date: $data['date'],
+                maxCapacity: $data['maxCapacity'],
+                price: $data['price']
             );
 
             $errors = $this->validator->validate($sessionRequest);

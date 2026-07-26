@@ -11,11 +11,11 @@ use Symfony\Component\Uid\Uuid;
 class SessionDTO
 {
     public function __construct(
-        Uuid $id,
-        Uuid $experienceId,
-        DateTimeImmutable $date,
-        int $maxCapacity,
-        float $price
+        public Uuid $id,
+        public Uuid $experienceId,
+        public DateTimeImmutable $date,
+        public int $maxCapacity,
+        public float $price
     ) {}
 
     /**

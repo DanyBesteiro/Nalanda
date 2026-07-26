@@ -28,7 +28,8 @@ class SessionRepository extends ServiceEntityRepository implements SessionReposi
 
     public function findByExperienceAndDate(Uuid $experienceId, DateTimeImmutable $date): ?Session
     {
-        return $this->createQueryBuilder('s')
+        /** @var Session|null $session */
+        $session = $this->createQueryBuilder('s')
             ->where('s.experienceId = :experienceId')
             ->andWhere('s.date BETWEEN :start AND :end')
             ->setParameter('experienceId', $experienceId)
@@ -36,6 +37,8 @@ class SessionRepository extends ServiceEntityRepository implements SessionReposi
             ->setParameter('end', $date->format('Y-m-d'))
             ->getQuery()
             ->getOneOrNullResult();
+
+        return $session;
     }
 
     public function save(Session $session): void
