@@ -95,4 +95,9 @@ class Session
     {
         return $this->getMaxCapacity() - $this->getReservedPlaces();
     }
+
+    public function reservePlaces(int $places): void
+    {
+        $this->reservedPlaces += $places;
+    }
 }
