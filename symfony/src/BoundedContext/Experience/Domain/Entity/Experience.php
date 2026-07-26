@@ -12,7 +12,7 @@ use Symfony\Component\Uid\Uuid;
 class Experience
 {
     #[ORM\Id]
-    #[ORM\Column(type: 'guid')]
+    #[ORM\Column(type: 'uuid')]
     private Uuid $id;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -21,16 +21,16 @@ class Experience
     #[ORM\Column(type: 'text')]
     private string $description;
 
-    #[ORM\Column(type: 'guid', name: 'provider_id')]
+    #[ORM\Column(type: 'uuid', name: 'provider_id')]
     private Uuid $providerId;
 
     public function __construct(
-        Uuid $id,
         string $title,
         string $description,
         Uuid $providerId
     ) {
-        $this->id = $id;
+        $this->id = Uuid::v4();
+
         $this->title = $title;
         $this->description = $description;
         $this->providerId = $providerId;
