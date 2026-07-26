@@ -14,10 +14,10 @@ use Symfony\Component\Uid\Uuid;
 class Session
 {
     #[ORM\Id]
-    #[ORM\Column(type: 'guid')]
+    #[ORM\Column(type: 'uuid')]
     private Uuid $id;
 
-    #[ORM\Column(type: 'guid', name: 'experience_id')]
+    #[ORM\Column(type: 'uuid', name: 'experience_id')]
     private Uuid $experienceId;
 
     #[ORM\Column(type: 'datetime_immutable', name: 'session_date')]
