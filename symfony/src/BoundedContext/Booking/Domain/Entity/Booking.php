@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace App\BoundedContext\Booking\Domain\Entity;
 
 use App\BoundedContext\Booking\Domain\ValueObject\BookingStatus;
-use DateTimeImmutable;
-use InvalidArgumentException;
 
 use Doctrine\ORM\Mapping as ORM;
 use LogicException;
@@ -26,27 +24,29 @@ class Booking
     #[ORM\Column(type: 'uuid', name: 'user_id')]
     private Uuid $userId;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private string $status;
+    #[ORM\Column(type: 'string', length: 255, enumType: BookingStatus::class)]
+    private BookingStatus $status;
 
-    #[ORM\Column(type: 'int')]
+    #[ORM\Column(type: 'integer')]
     private int $places;
 
-    #[ORM\Column(type: 'decimal', precision: 10, scale: 2)]
+    #[ORM\Column(type: 'decimal', precision: 10, scale: 2, name: 'total_price')]
     private readonly float $totalPrice;
 
     public function __construct(
         Uuid $sessionId,
         Uuid $userId,
-        int $places
+        int $places,
+        float $totalPrice
     ) {
 
         $this->id = Uuid::v4();
         $this->sessionId = $sessionId;
         $this->userId = $userId;
 
-        $this->status = BookingStatus::CONFIRMED->value;
+        $this->status = BookingStatus::CONFIRMED;
         $this->places = $places;
+        $this->totalPrice = $totalPrice;
     }
 
     public function getId(): Uuid
@@ -64,7 +64,7 @@ class Booking
         return $this->userId;
     }
 
-    public function getStatus(): string
+    public function getStatus(): BookingStatus
     {
         return $this->status;
     }
@@ -85,6 +85,6 @@ class Booking
             throw new LogicException('booking already canceled');
         }
 
-        $this->status = BookingStatus::CANCELED->value;
+        $this->status = BookingStatus::CANCELED;
     }
 }
