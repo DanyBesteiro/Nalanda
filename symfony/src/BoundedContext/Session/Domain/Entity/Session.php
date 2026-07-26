@@ -9,6 +9,8 @@ use DateTimeImmutable;
 use InvalidArgumentException;
 use Symfony\Component\Uid\Uuid;
 
+use function Symfony\Component\Clock\now;
+
 #[ORM\Entity]
 #[ORM\Table(name: 'session')]
 class Session
@@ -45,6 +47,10 @@ class Session
         $this->maxCapacity = $maxCapacity;
         $this->price = $price;
         $this->reservedPlaces = 0;
+
+        if ($this->date < now()) {
+            throw new InvalidArgumentException('Session date cannot be in the past.');
+        }
 
         if ($this->maxCapacity <= 0) {
             throw new InvalidArgumentException('Capacity must be greater than zero.');
