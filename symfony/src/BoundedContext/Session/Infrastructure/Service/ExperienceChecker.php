@@ -8,7 +8,7 @@ use App\BoundedContext\Experience\Domain\Repository\ExperienceRepositoryInterfac
 use App\BoundedContext\Session\Domain\Service\ExperienceCheckerInterface;
 use Symfony\Component\Uid\Uuid;
 
-final class DoctrineExperienceChecker implements ExperienceCheckerInterface
+final class ExperienceChecker implements ExperienceCheckerInterface
 {
     public function __construct(
         private readonly ExperienceRepositoryInterface $experienceRepository

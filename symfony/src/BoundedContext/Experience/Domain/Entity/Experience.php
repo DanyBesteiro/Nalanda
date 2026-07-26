@@ -25,12 +25,12 @@ class Experience
     private Uuid $providerId;
 
     public function __construct(
+        Uuid $id,
         string $title,
         string $description,
         Uuid $providerId
     ) {
-        $this->id = Uuid::v4();
-
+        $this->id = $id;
         $this->title = $title;
         $this->description = $description;
         $this->providerId = $providerId;

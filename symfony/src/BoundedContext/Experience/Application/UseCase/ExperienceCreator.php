@@ -9,6 +9,7 @@ use App\BoundedContext\Experience\Domain\Entity\Experience;
 use App\BoundedContext\Experience\Domain\Repository\ExperienceRepositoryInterface;
 use Symfony\Component\Uid\Uuid;
 
+
 class ExperienceCreator
 {
     public function __construct(
@@ -18,6 +19,7 @@ class ExperienceCreator
     public function execute(ExperienceCreatorRequest $experienceRequest): Experience
     {
         $experience = new Experience(
+            id: Uuid::v4(),
             title: $experienceRequest->title,
             description: $experienceRequest->description,
             providerId: $experienceRequest->providerId

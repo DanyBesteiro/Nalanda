@@ -22,7 +22,14 @@ class ExperienceRepository extends ServiceEntityRepository implements Experience
 
     public function findById(Uuid $id): ?Experience
     {
-        return $this->find($id);
+        $experience = $this->find($id->toRfc4122());
+
+        return !$experience ? null : new Experience(
+            $experience->getId(),
+            $experience->getTitle(),
+            $experience->getDescription(),
+            $experience->getProvider()
+        );
     }
 
     public function save(Experience $experience): void
