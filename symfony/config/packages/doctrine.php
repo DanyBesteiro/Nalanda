@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigura
 
 return function (ContainerConfigurator $configurator) {
     $contexts = [
+        'Booking',
         'Experience',
         'Session'
     ];
