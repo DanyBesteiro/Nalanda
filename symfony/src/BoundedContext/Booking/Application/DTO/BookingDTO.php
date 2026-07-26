@@ -34,7 +34,7 @@ class BookingDTO
             'id' => $booking->getId()->toRfc4122(),
             'sessionId' => $booking->getSessionId()->toRfc4122(),
             'userId' => $booking->getUserId()->toRfc4122(),
-            'status' => $booking->getStatus(),
+            'status' => $booking->getStatus()->value,
             'places' => $booking->getPlaces(),
             'totalPrice' => $booking->getTotalPrice()
         ];

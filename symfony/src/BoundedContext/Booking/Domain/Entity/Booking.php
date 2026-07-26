@@ -79,7 +79,7 @@ class Booking
         return $this->totalPrice;
     }
 
-    public function cancelBooking(): void
+    public function cancel(): void
     {
         if ($this->status === BookingStatus::CANCELED) {
             throw new LogicException('booking already canceled');

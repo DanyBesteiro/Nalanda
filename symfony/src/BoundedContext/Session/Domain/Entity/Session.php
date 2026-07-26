@@ -100,4 +100,9 @@ class Session
     {
         $this->reservedPlaces += $places;
     }
+
+    public function unReservePlaces(int $places): void
+    {
+        $this->reservedPlaces -= $places;
+    }
 }
