@@ -11,4 +11,7 @@ return function (RoutingConfigurator $routes) {
 
     $routes->import('routes/api/session.php')
         ->prefix('/api');
+
+    $routes->import('routes/api/booking.php')
+        ->prefix('/api');
 };
