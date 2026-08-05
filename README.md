@@ -1,6 +1,7 @@
 # 🎟️ Booking API
 
 Servicio backend de reserva de experiencias y gestión de aforo masivo desarrollado bajo los principios de **Diseño Guiado por el Dominio (DDD)**, **Arquitectura Hexagonal**, y **Tipado Estricto** en PHP 8.4 y Symfony 7.
+
 ---
 
 ## 🏗️ Decisiones de Arquitectura
